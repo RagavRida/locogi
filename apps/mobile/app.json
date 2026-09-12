@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "Locogi",
+    "slug": "locogi",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "locogi",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "splash": {
+      "backgroundColor": "#0B0B0F",
+      "resizeMode": "contain"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.locogi.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Locogi uses your location to find vendors near you.",
+        "NSPhotoLibraryUsageDescription": "Locogi needs photo access to upload your portfolio images."
+      }
+    },
+    "android": {
+      "package": "com.locogi.app",
+      "adaptiveIcon": { "backgroundColor": "#0B0B0F" },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "READ_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Locogi uses your location to find vendors near you."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Locogi needs photo access to upload your portfolio."
+        }
+      ]
+    ],
+    "extra": {
+      "apiUrl": "http://localhost:3000"
+    }
+  }
+}

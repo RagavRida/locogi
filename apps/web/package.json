@@ -1,0 +1,30 @@
+{
+  "name": "@locogi/web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3002",
+    "build": "next build",
+    "start": "next start -p 3002",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@auth0/nextjs-auth0": "3.8.0",
+    "@locogi/types": "workspace:*",
+    "@copilotkit/react-core": "1.71.1",
+    "@copilotkit/react-ui": "1.71.1",
+    "next": "14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "~5.9.2",
+    "vitest": "2.1.9",
+    "@playwright/test": "1.51.1"
+  }
+}

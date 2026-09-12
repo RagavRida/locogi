@@ -1,0 +1,179 @@
+# Moss Docs
+
+> Moss is a high-performance runtime for real-time semantic search. It delivers sub-10 ms lookups, instant index updates, and zero infra overhead. Moss runs where your agent lives - cloud, in-browser, or on-device - so search feels native and users never wait.
+
+- [Docs](https://docs.moss.dev/docs/index.md)
+- [What is Moss?](https://docs.moss.dev/docs/start/what-is-moss.md): Real-time semantic search that runs where your agent lives
+- [Quickstart](https://docs.moss.dev/docs/start/quickstart.md): Install, authenticate, create an index, and query it (JS/Python tabs)
+- [Core Concepts](https://docs.moss.dev/docs/start/core-concepts.md): Indexes, embeddings, retrieval, sessions, sync, and the rest of the Moss model.
+- [Vibecoding with Moss](https://docs.moss.dev/docs/start/vibecoding.md): Starter prompts, LLM-friendly docs, and MCP setup for building Moss-powered apps with AI coding tools.
+- [Real-Time Local Indexing](https://docs.moss.dev/docs/build/real-time-local-indexing.md): Index and query in-process with a local session - no per-operation network call.
+- [Live-Call Context](https://docs.moss.dev/docs/build/live-call-context.md): Query a persistent cloud index and a live session together during a conversation.
+- [Data Hydration & Sync](https://docs.moss.dev/docs/build/data-hydration-sync.md): Hydrate on-device indexes from the cloud and keep them fresh with zero-downtime hot-swaps.
+- [Cross-Agent Context & Omni-Channel Handoff](https://docs.moss.dev/docs/build/cross-agent-handoff.md): Hand a conversation off across agents, channels, and devices with full context intact.
+- [Sub-10ms Knowledge Retrieval](https://docs.moss.dev/docs/build/offline-first-search.md): Load an index into memory and run semantic queries in-process.
+- [Voice Agent (LiveKit)](https://docs.moss.dev/docs/build/voice-agent-livekit.md): Ground a LiveKit voice agent in your Moss index for real-time retrieval.
+- [Agent Context](https://docs.moss.dev/docs/build/agent-context.md): Persist and recall agent context as documents in a Moss index.
+- [Browser Extension Context](https://docs.moss.dev/docs/build/browser-extension-context.md): Run indexing and queries in the browser with the @moss-dev/moss-web SDK.
+- [Electron App Local Search](https://docs.moss.dev/docs/build/electron-local-search.md): Run a Moss index in the Electron main process and query it from the renderer over IPC.
+- [Local Embeddings](https://docs.moss.dev/docs/build/local-embeddings.md): Embed documents on-device with a built-in model.
+- [Authentication](https://docs.moss.dev/docs/integrate/authentication.md): Configure project credentials for the Moss SDKs
+- [Indexing Data](https://docs.moss.dev/docs/integrate/indexing-data.md): Prepare and upsert your content into Moss indexes
+- [Sessions](https://docs.moss.dev/docs/integrate/sessions.md): Local-first, real-time indexing with create-resume-query-push.
+- [Retrieval](https://docs.moss.dev/docs/integrate/retrieval.md): Choose vector, keyword, or hybrid retrieval
+- [Hybrid Search](https://docs.moss.dev/docs/integrate/hybrid-search.md): Blend semantic and keyword scoring with a single alpha parameter.
+- [Metadata Filtering](https://docs.moss.dev/docs/integrate/metadata-filtering.md): Narrow query results to documents whose metadata matches a filter.
+- [Custom Embeddings](https://docs.moss.dev/docs/integrate/custom-embeddings.md): Bring your own vectors instead of a built-in on-device model.
+- [Multi-Index Search](https://docs.moss.dev/docs/integrate/multi-index-search.md): Search across multiple loaded indexes in one call and get a global top-K.
+- [Storage & Persistence](https://docs.moss.dev/docs/integrate/storage-persistence.md): Persist loaded indexes to disk and keep them in sync with the cloud.
+- [Deployment / Production](https://docs.moss.dev/docs/integrate/deployment-production.md): Checklist for shipping Moss-backed features
+- [Errors & Troubleshooting](https://docs.moss.dev/docs/reference/errors.md): Reference for common Moss SDK errors and how to fix them
+- [Pricing & Limits](https://docs.moss.dev/docs/pricing.md)
+- [SDK Overview](https://docs.moss.dev/docs/reference/sdk.md): Every Moss SDK capability, with links to the detailed guide for each.
+- [Overview](https://docs.moss.dev/docs/reference/python/api.md): Everything the Moss Python SDK can do, with a snippet for each operation.
+- [Index from Files](https://docs.moss.dev/docs/reference/python/files.md): Build an index from PDF and DOCX files with server-side parsing.
+- [Sessions](https://docs.moss.dev/docs/reference/python/sessions.md): Index and query locally in real time with a SessionIndex, then push to the cloud.
+- [Hybrid search](https://docs.moss.dev/docs/reference/python/hybrid-search.md): Blend semantic and keyword scoring with a single alpha parameter.
+- [Metadata filtering](https://docs.moss.dev/docs/reference/python/metadata-filtering.md): Narrow query results to documents whose metadata matches a filter.
+- [Exact / Graph Retrieval](https://docs.moss.dev/docs/reference/python/graph-retrieval.md): Deterministic fetch by id or metadata, sorting, and parent grouping on a session.
+- [Custom embeddings](https://docs.moss.dev/docs/reference/python/custom-embeddings.md): Bring your own vectors instead of a built-in on-device model.
+- [Structured payload](https://docs.moss.dev/docs/reference/python/structured-payload.md): Attach an opaque structured record to a document, stored and returned verbatim.
+- [Multi-index search](https://docs.moss.dev/docs/reference/python/multi-index-search.md): Search across multiple loaded indexes in one call and get a global top-K.
+- [MossClient](https://docs.moss.dev/docs/reference/python/classes/MossClient.md): Semantic search client for vector similarity operations.
+- [SessionIndex](https://docs.moss.dev/docs/reference/python/classes/SessionIndex.md): Local, in-session index for real-time indexing and querying.
+- [JobHandle](https://docs.moss.dev/docs/reference/python/classes/JobHandle.md): Handle to an in-flight index build submitted with wait=False.
+- [AddDocumentsOptions](https://docs.moss.dev/docs/reference/python/interfaces/AddDocumentsOptions.md)
+- [DocumentInfo](https://docs.moss.dev/docs/reference/python/interfaces/DocumentInfo.md)
+- [GetDocumentsOptions](https://docs.moss.dev/docs/reference/python/interfaces/GetDocumentsOptions.md)
+- [IndexInfo](https://docs.moss.dev/docs/reference/python/interfaces/IndexInfo.md)
+- [IndexStatus](https://docs.moss.dev/docs/reference/python/interfaces/IndexStatus.md)
+- [JobPhase](https://docs.moss.dev/docs/reference/python/interfaces/JobPhase.md)
+- [JobProgress](https://docs.moss.dev/docs/reference/python/interfaces/JobProgress.md)
+- [JobStatus](https://docs.moss.dev/docs/reference/python/interfaces/JobStatus.md)
+- [JobStatusResponse](https://docs.moss.dev/docs/reference/python/interfaces/JobStatusResponse.md)
+- [LoadIndexesResult](https://docs.moss.dev/docs/reference/python/interfaces/LoadIndexesResult.md)
+- [ModelRef](https://docs.moss.dev/docs/reference/python/interfaces/ModelRef.md)
+- [MutationOptions](https://docs.moss.dev/docs/reference/python/interfaces/MutationOptions.md)
+- [MutationResult](https://docs.moss.dev/docs/reference/python/interfaces/MutationResult.md)
+- [ParentGrouping](https://docs.moss.dev/docs/reference/python/interfaces/ParentGrouping.md)
+- [ParseFileInput](https://docs.moss.dev/docs/reference/python/interfaces/ParseFileInput.md)
+- [ParseOptions](https://docs.moss.dev/docs/reference/python/interfaces/ParseOptions.md)
+- [PushIndexResult](https://docs.moss.dev/docs/reference/python/interfaces/PushIndexResult.md)
+- [QueryOptions](https://docs.moss.dev/docs/reference/python/interfaces/QueryOptions.md)
+- [QueryResultDocumentInfo](https://docs.moss.dev/docs/reference/python/interfaces/QueryResultDocumentInfo.md)
+- [SearchResult](https://docs.moss.dev/docs/reference/python/interfaces/SearchResult.md)
+- [Overview](https://docs.moss.dev/docs/reference/js/api.md): Everything the Moss JavaScript SDK can do, with a snippet for each operation.
+- [Index from Files](https://docs.moss.dev/docs/reference/js/files.md): Build an index from PDF and DOCX files with server-side parsing.
+- [Sessions](https://docs.moss.dev/docs/reference/js/sessions.md): Local-first, real-time indexing in JavaScript with create-resume-query-push.
+- [Hybrid search](https://docs.moss.dev/docs/reference/js/hybrid-search.md): Blend semantic and keyword scoring in JavaScript with a single alpha parameter.
+- [Metadata filtering](https://docs.moss.dev/docs/reference/js/metadata-filtering.md): Narrow JavaScript query results to documents whose metadata matches a filter.
+- [Custom embeddings](https://docs.moss.dev/docs/reference/js/custom-embeddings.md): Bring your own vectors in JavaScript instead of a built-in on-device model.
+- [Custom Authenticator (JS)](https://docs.moss.dev/docs/reference/js/custom-authenticator.md): Authenticate browser/frontend clients without shipping your projectKey.
+- [MossClient](https://docs.moss.dev/docs/reference/js/classes/MossClient.md): Async-first semantic search client for vector similarity operations.
+- [SessionIndex](https://docs.moss.dev/docs/reference/js/classes/SessionIndex.md): Local-first, in-process index for real-time indexing and querying.
+- [CreateIndexFromFilesOptions](https://docs.moss.dev/docs/reference/js/interfaces/CreateIndexFromFilesOptions.md)
+- [CreateIndexOptions](https://docs.moss.dev/docs/reference/js/interfaces/CreateIndexOptions.md)
+- [DocumentInfo](https://docs.moss.dev/docs/reference/js/interfaces/DocumentInfo.md)
+- [GetDocumentsOptions](https://docs.moss.dev/docs/reference/js/interfaces/GetDocumentsOptions.md)
+- [IndexInfo](https://docs.moss.dev/docs/reference/js/interfaces/IndexInfo.md)
+- [JobProgress](https://docs.moss.dev/docs/reference/js/interfaces/JobProgress.md)
+- [JobStatusResponse](https://docs.moss.dev/docs/reference/js/interfaces/JobStatusResponse.md)
+- [LoadIndexOptions](https://docs.moss.dev/docs/reference/js/interfaces/LoadIndexOptions.md)
+- [LoadSessionOptions](https://docs.moss.dev/docs/reference/js/interfaces/LoadSessionOptions.md)
+- [ModelRef](https://docs.moss.dev/docs/reference/js/interfaces/ModelRef.md)
+- [MutationOptions](https://docs.moss.dev/docs/reference/js/interfaces/MutationOptions.md)
+- [MutationResult](https://docs.moss.dev/docs/reference/js/interfaces/MutationResult.md)
+- [ParseFileInput](https://docs.moss.dev/docs/reference/js/interfaces/ParseFileInput.md)
+- [ParseOptions](https://docs.moss.dev/docs/reference/js/interfaces/ParseOptions.md)
+- [PushIndexResult](https://docs.moss.dev/docs/reference/js/interfaces/PushIndexResult.md)
+- [QueryOptions](https://docs.moss.dev/docs/reference/js/interfaces/QueryOptions.md)
+- [QueryResultDocumentInfo](https://docs.moss.dev/docs/reference/js/interfaces/QueryResultDocumentInfo.md)
+- [RefreshResult](https://docs.moss.dev/docs/reference/js/interfaces/RefreshResult.md)
+- [SearchResult](https://docs.moss.dev/docs/reference/js/interfaces/SearchResult.md)
+- [FilterCondition](https://docs.moss.dev/docs/reference/js/type-aliases/FilterCondition.md)
+- [ISODate](https://docs.moss.dev/docs/reference/js/type-aliases/ISODate.md)
+- [JobPhase](https://docs.moss.dev/docs/reference/js/type-aliases/JobPhase.md)
+- [JobStatus](https://docs.moss.dev/docs/reference/js/type-aliases/JobStatus.md)
+- [MetadataFilter](https://docs.moss.dev/docs/reference/js/type-aliases/MetadataFilter.md)
+- [MossModel](https://docs.moss.dev/docs/reference/js/type-aliases/MossModel.md)
+- [Overview](https://docs.moss.dev/docs/reference/swift/api.md): On-device semantic search for iOS with the Moss Swift SDK.
+- [Querying](https://docs.moss.dev/docs/reference/swift/querying.md): Hybrid search and metadata filtering with the Moss Swift SDK.
+- [Exact / Graph Retrieval](https://docs.moss.dev/docs/reference/swift/graph-retrieval.md): Deterministic fetch by id or metadata, typed filters, parent grouping, and verbatim payloads with the Moss Swift SDK.
+- [Custom Authenticator](https://docs.moss.dev/docs/reference/swift/custom-authenticator.md): Authenticate the Swift client with short-lived tokens from your backend.
+- [MossClient](https://docs.moss.dev/docs/reference/swift/classes/MossClient.md): Entry point for the Swift SDK: construct the client and open on-device sessions.
+- [MossSession](https://docs.moss.dev/docs/reference/swift/classes/MossSession.md): On-device index for local embedding, search, persistence, and cloud sync.
+- [Types](https://docs.moss.dev/docs/reference/swift/types.md): Structs and enums used across the Moss Swift SDK.
+- [Overview](https://docs.moss.dev/docs/reference/elixir/api.md): On-device semantic search for Elixir with the Moss Elixir SDK.
+- [Moss.Client](https://docs.moss.dev/docs/reference/elixir/classes/Client.md): Entry point for cloud index management and local querying in the Moss Elixir SDK.
+- [Moss.Session](https://docs.moss.dev/docs/reference/elixir/classes/Session.md): Local in-session index for real-time embedding, search, and cloud sync.
+- [Types](https://docs.moss.dev/docs/reference/elixir/types.md): Structs passed to and returned from the Moss Elixir SDK.
+- [Overview](https://docs.moss.dev/docs/reference/browser/api.md): Private, in-browser semantic search for the web with the Moss Browser/WASM SDK.
+- [Browser vs Node](https://docs.moss.dev/docs/reference/browser/browser-vs-node.md): Choose between the Moss Browser/WASM SDK and the Node SDK.
+- [MossClient](https://docs.moss.dev/docs/reference/browser/classes/MossClient.md): In-browser semantic search client backed by WebAssembly.
+- [Overview](https://docs.moss.dev/docs/reference/c/getting-started.md): Semantic search in C with libmoss, the native Moss runtime.
+- [API reference](https://docs.moss.dev/docs/reference/c/api.md): MossClient and MossSession functions, memory management, and error handling for libmoss.
+- [Examples](https://docs.moss.dev/docs/reference/c/examples.md): Runnable libmoss programs: session workflow, cloud CRUD, and metadata filtering.
+- [LiveKit](https://docs.moss.dev/docs/integrations/livekit.md)
+- [Pipecat](https://docs.moss.dev/docs/integrations/pipecat.md)
+- [VAPI](https://docs.moss.dev/docs/integrations/vapi.md): Connect Moss semantic search to VAPI voice agents via a Custom Knowledge Base webhook.
+- [ElevenLabs](https://docs.moss.dev/docs/integrations/elevenlabs.md): Add real-time knowledge base access to ElevenLabs Conversational AI agents with Moss semantic search.
+- [Agora](https://docs.moss.dev/docs/integrations/agora.md): Add real-time knowledge base access to Agora Conversational AI voice agents with Moss semantic search over MCP.
+- [Voice Agents](https://docs.moss.dev/docs/voice-agents/voice-agents.md): Build and deploy AI voice agents with Moss
+- [Vercel AI SDK](https://docs.moss.dev/docs/integrations/vercel-ai-sdk.md): Give AI agents semantic search capabilities using Moss tools for the Vercel AI SDK.
+- [LangChain](https://docs.moss.dev/docs/integrations/langchain.md): Use Moss as a retriever in LangChain chains and agents for sub-10ms semantic search.
+- [DSPy](https://docs.moss.dev/docs/integrations/dspy.md): Use Moss as a retrieval module in DSPy programs.
+- [Agno](https://docs.moss.dev/docs/integrations/agno.md): Use Moss as the in-memory semantic search runtime for Agno agents.
+- [Mastra](https://docs.moss.dev/docs/integrations/mastra.md): Use Moss semantic search tools inside Mastra agents.
+- [Strands Agents](https://docs.moss.dev/docs/integrations/strands-agents.md): Give Strands Agents sub-10ms semantic retrieval from a Moss knowledge base.
+- [sim.ai](https://docs.moss.dev/docs/integrations/sim.md): Add sub-10ms semantic search to sim.ai workflows via a Moss-powered webhook tool.
+- [MCP Server](https://docs.moss.dev/docs/integrations/mcp-server.md): Connect Moss semantic search to any MCP-compatible AI client - Claude Desktop, Cursor, VS Code, and more.
+- [Moss CLI](https://docs.moss.dev/docs/integrations/moss-cli.md): Manage indexes, documents, and queries from the terminal
+- [Next.js](https://docs.moss.dev/docs/integrations/nextjs.md): Add semantic search to a Next.js application using Moss with Server Actions.
+- [VitePress](https://docs.moss.dev/docs/integrations/vitepress.md): Add semantic search to your VitePress documentation site with zero configuration using Moss.
+- [Data Connectors](https://docs.moss.dev/docs/integrations/data-connectors.md): Sync rows from SQLite, MongoDB, MySQL, or Supabase into a Moss index.
+- [Markdown Indexer](https://docs.moss.dev/docs/integrations/md-indexer.md): Build and upload a Moss search index from any Markdown or VitePress docs directory.
+- [Grounded FAQ Agent](https://docs.moss.dev/docs/cookbook/langgraph.md): Use Moss as a retrieval node inside a LangGraph stateful agent graph for grounded, sub-10ms answers.
+- [Multi-Agent Travel Planner](https://docs.moss.dev/docs/cookbook/crewai.md): Build a multi-agent travel planner where each specialist agent is backed by its own domain-isolated Moss index.
+- [Customer Support Agent](https://docs.moss.dev/docs/cookbook/pydantic-ai.md): Expose Moss semantic search as a typed, reusable tool inside a Pydantic AI agent.
+- [Generalist Voice Agent](https://docs.moss.dev/docs/cookbook/generalist-voice-agent.md): A LiveKit voice agent that routes calls to different Moss indexes based on persona — switch knowledge bases without touching code.
+- [Mortgage Lending Agent](https://docs.moss.dev/docs/cookbook/mortgage-lending-agent.md): A two-agent voice assistant that hands off from mortgage Q&A to a structured payment flow, sharing session state across the switch.
+- [Airline Customer Service Agent](https://docs.moss.dev/docs/cookbook/airline-customer-agent.md): An airline voice agent that uses ambient retrieval — Moss queries fire automatically before each LLM turn, with no retrieval tool and no extra round-trip.
+- [Candidate Screening Agent](https://docs.moss.dev/docs/cookbook/candidate-screening-agent.md): A voice screening interviewer that grounds every question in two Moss indexes — one for the job description, one for the candidate's resume — and emits a structured scorecard.
+- [Introduction](https://docs.moss.dev/docs/api-reference/v1/getting-started/introduction.md): Base URL and overview for the Moss Control Plane API.
+- [Authentication](https://docs.moss.dev/docs/api-reference/v1/getting-started/authentication.md): How to authenticate requests to the Moss Control Plane API.
+- [Overview](https://docs.moss.dev/docs/api-reference/v1/getting-started/overview.md): Control Plane endpoint structure and shared request schema.
+- [Init Upload](https://docs.moss.dev/docs/api-reference/v1/index-management/initUpload.md): Get a presigned URL to upload index data for a new index.
+- [Start Build](https://docs.moss.dev/docs/api-reference/v1/index-management/startBuild.md): Trigger an index build after uploading data.
+- [Get Job Status](https://docs.moss.dev/docs/api-reference/v1/index-management/getJobStatus.md): Check the status of an async index build job.
+- [Get Index](https://docs.moss.dev/docs/api-reference/v1/index-management/getIndex.md): Fetch metadata for a single index.
+- [List Indexes](https://docs.moss.dev/docs/api-reference/v1/index-management/listIndex.md): List every index tied to a project.
+- [Delete Index](https://docs.moss.dev/docs/api-reference/v1/index-management/deleteIndex.md): Delete an index record and associated assets.
+- [Create Web Source](https://docs.moss.dev/docs/api-reference/v1/web-sources/createWebSource.md): Crawl a website and build an index from its pages.
+- [List Web Sources](https://docs.moss.dev/docs/api-reference/v1/web-sources/listWebSources.md): Enumerate every web source under the project.
+- [Get Web Source](https://docs.moss.dev/docs/api-reference/v1/web-sources/getWebSource.md): Fetch a single web source by ID.
+- [Resync Web Source](https://docs.moss.dev/docs/api-reference/v1/web-sources/resyncWebSource.md): Re-crawl a website and refresh its index.
+- [Update Web Source](https://docs.moss.dev/docs/api-reference/v1/web-sources/updateWebSource.md): Change the refresh schedule of a web source.
+- [Delete Web Source](https://docs.moss.dev/docs/api-reference/v1/web-sources/deleteWebSource.md): Remove a web source and stop its scheduled re-crawls.
+- [Add Documents](https://docs.moss.dev/docs/api-reference/v1/document-operations/addDocs.md): Append or upsert documents into an existing index.
+- [Get Documents](https://docs.moss.dev/docs/api-reference/v1/document-operations/getDocs.md): Retrieve the stored documents for an index.
+- [Delete Documents](https://docs.moss.dev/docs/api-reference/v1/document-operations/deleteDocs.md): Remove specific documents by ID and rebuild the index.
+- [Founding Agent overview](https://docs.moss.dev/docs/founding-agent/overview.md): A voice AI agent for your website that answers visitors, qualifies buyers, and books meetings.
+- [Quickstart](https://docs.moss.dev/docs/founding-agent/quickstart.md): Publish a working Founding Agent and talk to it in a few minutes.
+- [Core concepts](https://docs.moss.dev/docs/founding-agent/concepts.md): The vocabulary of the Founding Agent: keys, knowledge, sessions, leads, handoff, and booking.
+- [Create and configure an agent](https://docs.moss.dev/docs/founding-agent/portal/create-and-configure.md): Set up your Founding Agent in the portal: identity, voice, teaching, and deploy.
+- [Teach your agent](https://docs.moss.dev/docs/founding-agent/portal/teach.md): Give your agent the knowledge it answers from: Q&A pairs and knowledge chunks.
+- [Leads and conversations](https://docs.moss.dev/docs/founding-agent/portal/leads-and-conversations.md): Review conversations, read transcripts, and see what visitors ask.
+- [Live calls and human handoff](https://docs.moss.dev/docs/founding-agent/portal/live-calls-and-handoff.md): Watch active calls and take over a conversation as a human when it matters.
+- [Install and keys](https://docs.moss.dev/docs/founding-agent/embed/install-and-keys.md): Install the Founding Agent SDK and set up your publishable and API keys.
+- [Server token route](https://docs.moss.dev/docs/founding-agent/embed/server-token-route.md): Mint a Founding Agent session from your server so your API key never reaches the browser.
+- [React components](https://docs.moss.dev/docs/founding-agent/embed/react-components.md): Drop the Founding Agent voice UI onto your site with the React provider and bubble.
+- [Demo booking](https://docs.moss.dev/docs/founding-agent/embed/booking.md): Let visitors book a demo by voice, backed by your Cal.com calendar.
+- [CRM](https://docs.moss.dev/docs/founding-agent/integrations/crm.md): Sync captured leads from your Founding Agent into HubSpot or Salesforce.
+- [Plans and pricing](https://docs.moss.dev/docs/founding-agent/pricing.md): Founding Agent plans, what each one includes, and how features unlock by tier.
+- [Changelog](https://docs.moss.dev/docs/changelog.md): Every release across the Moss SDKs, integrations, CLI, Portal, and API.
+
+## Optional
+
+- [Join our Community](https://discord.gg/eMXExuafBR)
+- [GitHub](https://github.com/usemoss/moss)
+- [Request a Demo](https://form.typeform.com/to/KdqOaXWu)

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locogi Widget Demo</title>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: 0; padding: 80px 40px;
+      background: #0f0f1a; color: #e4e4e7;
+    }
+    h1 { font-size: 48px; font-weight: 800; letter-spacing: -1px; }
+    h1 span { color: #6366f1; }
+    p { color: #a1a1aa; font-size: 18px; line-height: 1.6; max-width: 600px; margin-top: 16px; }
+    code {
+      display: block; margin-top: 40px; padding: 24px; border-radius: 12px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      font-size: 14px; color: #a1a1aa; white-space: pre; overflow-x: auto;
+    }
+    code span { color: #6366f1; }
+  </style>
+</head>
+<body>
+  <h1>Your <span>Restaurant</span> Website</h1>
+  <p>
+    This is a demo page showing how the Locogi booking widget works.
+    Click the floating button in the bottom-right corner to open the
+    booking flow.
+  </p>
+
+  <code>&lt;!-- Add this to your website --&gt;
+&lt;script src="https://widget.locogi.com/v1.js"
+        data-org-id="<span>your-org-id</span>"
+        data-api-url="<span>http://localhost:3000</span>"
+        data-theme="dark"&gt;
+&lt;/script&gt;</code>
+
+  <!-- The widget script -->
+  <script type="module">
+    import { init } from './src/locogi-widget.ts'
+    init({
+      orgId: 'demo-org-id',
+      apiUrl: 'http://localhost:3000',
+      theme: 'dark',
+      primaryColor: '#6366f1',
+    })
+  </script>
+</body>
+</html>

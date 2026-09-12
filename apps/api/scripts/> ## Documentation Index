@@ -1,0 +1,196 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.moss.dev/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Overview
+
+> Everything the Moss JavaScript SDK can do, with a snippet for each operation.
+
+The Moss JavaScript SDK (`@moss-dev/moss`) brings semantic search to Node.js. It wraps a
+high-performance Rust core and exposes an async, Promise-based API. Documents are embedded
+and queried locally, with optional cloud sync.
+
+## Requirements
+
+* Node.js 20 or higher
+
+## Install
+
+```bash theme={null}
+npm install @moss-dev/moss
+```
+
+Get your `projectId` and `projectKey` from the [Moss portal](https://portal.usemoss.dev).
+
+## Two ways to search
+
+* [`MossClient`](./classes/MossClient) - the entry point. Manage cloud indexes, load one into memory, and query it.
+* [`SessionIndex`](./classes/SessionIndex) - a local, in-process index for real-time indexing during a live interaction; push to the cloud when done.
+
+## Quick start
+
+```typescript theme={null}
+import { MossClient } from '@moss-dev/moss'
+
+const client = new MossClient(process.env.MOSS_PROJECT_ID!, process.env.MOSS_PROJECT_KEY!)
+
+await client.createIndex('faqs', [
+  { id: 'doc1', text: 'Track your order in your account.', metadata: { category: 'shipping' } },
+  { id: 'doc2', text: '30-day return policy for most items.', metadata: { category: 'returns' } },
+])
+await client.loadIndex('faqs')
+const results = await client.query('faqs', 'return a damaged product', { topK: 3 })
+results.docs.forEach(d => console.log(d.id, d.score))
+```
+
+## Indexes
+
+Create, inspect, and delete cloud indexes. Mutations run as async jobs and return a
+`MutationResult` with a `jobId` and `docCount`.
+
+```typescript theme={null}
+// Create (defaults to moss-minilm)
+const result = await client.createIndex('faqs', documents)
+
+// Inspect
+const info = await client.getIndex('faqs')   // IndexInfo: name, docCount, model.id, status
+const indexes = await client.listIndexes()    // IndexInfo[]
+
+// Delete
+await client.deleteIndex('faqs')
+```
+
+## Index from files
+
+Build an index straight from PDF and DOCX files - the server parses, chunks, and embeds
+them. Up to 20 files per call.
+
+```typescript theme={null}
+await client.createIndexFromFiles('contracts', [
+  { name: 'report.pdf', contentType: 'application/pdf', path: '/docs/report.pdf' },
+], { parseOptions: { ocrMode: 'full_ocr' } })
+```
+
+See [Index from files](./files).
+
+## Documents
+
+Add, update, fetch, and remove documents on an existing index.
+
+```typescript theme={null}
+// Add or upsert
+await client.addDocs('faqs', newDocs, { upsert: true })
+
+// Fetch all, or by id
+const allDocs = await client.getDocs('faqs')
+const some = await client.getDocs('faqs', { docIds: ['doc1', 'doc2'] })
+
+// Delete by id
+await client.deleteDocs('faqs', ['doc6', 'doc7'])
+```
+
+## Load and query
+
+Load an index into memory, then query it in-process. Call `loadIndex` before querying.
+
+```typescript theme={null}
+await client.loadIndex('faqs')
+const results = await client.query('faqs', 'return a damaged product', { topK: 3 })
+results.docs.forEach(d => console.log(d.id, d.score, d.text))
+```
+
+## Hybrid search
+
+Blend semantic and keyword scoring with `alpha` (1.0 = semantic, 0.0 = keyword; default 0.8).
+
+```typescript theme={null}
+await client.query('faqs', 'return policy', { topK: 3, alpha: 0.6 })
+```
+
+See [Hybrid search](./hybrid-search).
+
+## Metadata filtering
+
+Narrow results by document metadata on a loaded index.
+
+```typescript theme={null}
+await client.query('products', 'running shoes', {
+  topK: 5,
+  filter: {
+    $and: [
+      { field: 'category', condition: { $eq: 'shoes' } },
+      { field: 'price',    condition: { $lt: 100 } },
+    ],
+  },
+})
+```
+
+Operators: `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`, `$in`, `$nin`, `$near`, composed with
+`$and` / `$or`. See [Metadata filtering](./metadata-filtering).
+
+## Custom embeddings
+
+Supply your own vectors with `modelId: 'custom'` (each document carries `embedding`, and
+queries pass `embedding`).
+
+```typescript theme={null}
+await client.createIndex('tickets', docsWithEmbeddings, { modelId: 'custom' })
+await client.loadIndex('tickets')
+await client.query('tickets', 'billing problem', { topK: 3, embedding: queryVector })
+```
+
+See [Custom embeddings](./custom-embeddings).
+
+## Sessions
+
+Index and query locally in real time with a [`SessionIndex`](./classes/SessionIndex), then
+push to the cloud. `session()` resumes an existing cloud index by name, or starts empty.
+
+```typescript theme={null}
+const session = await client.session('call-123')
+await session.addDocs([{ id: 'turn-1', text: 'Customer reported a duplicate charge.' }])
+const hits = await session.query('billing issue', { topK: 3 })
+await session.pushIndex()
+```
+
+See [Sessions](./sessions).
+
+## Keeping indexes fresh
+
+Auto-refresh a loaded index (poll the cloud and hot-swap newer versions in automatically),
+and track async jobs.
+
+```typescript theme={null}
+await client.loadIndex('faqs', { autoRefresh: true, pollingIntervalInSeconds: 300 })
+const status = await client.getJobStatus(result.jobId)
+```
+
+## Authentication
+
+Construct the client with a `projectKey` for server-side use, or use a custom authenticator
+to mint short-lived tokens for untrusted clients (`getAuthToken()`).
+
+```typescript theme={null}
+const { token, expiresIn } = await client.getAuthToken()
+```
+
+See [Custom Authenticator](./custom-authenticator).
+
+## Models
+
+* `moss-minilm` (default) - fast, lightweight
+* `moss-mediumlm` - higher accuracy
+* `custom` - supply your own embedding vectors via `DocumentInfo.embedding`
+
+## Guides
+
+* [Index from files](./files)
+* [Sessions](./sessions)
+* [Hybrid search](./hybrid-search)
+* [Metadata filtering](./metadata-filtering)
+* [Custom embeddings](./custom-embeddings)
+* [Custom Authenticator](./custom-authenticator)
+
+## Reference
+
+[MossClient](./classes/MossClient) and [SessionIndex](./classes/SessionIndex), plus all interfaces and types, are in the Reference section of the sidebar.

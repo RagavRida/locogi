@@ -1,0 +1,12 @@
+**/.env
+**/.env.*
+**/node_modules
+**/.next
+**/.turbo
+**/test-results
+**/playwright-report
+**/*.log
+apps/api
+apps/mobile
+apps/dashboard
+apps/widget
